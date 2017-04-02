@@ -20,7 +20,7 @@ namespace SugarSnap.Views
         {
             InitializeComponent();
             MainCanvas.PaintSurface += DrawMainCanvas;
-        }
+        } 
 
         private void DrawMainCanvas(object sender, SKPaintSurfaceEventArgs e)
         {
@@ -30,27 +30,29 @@ namespace SugarSnap.Views
 
             canvas.Clear();
 
+            SKColor accent = Color.Accent.ToSKColor();
+
             SKPaint spoonFill = new SKPaint()
             {
                 Style = SKPaintStyle.Fill,
-                Color = Color.Silver.ToSKColor(),
-                IsAntialias = true
-            };
-
-            SKPaint sugarFill = new SKPaint()
-            {
-                Style = SKPaintStyle.Fill,
-                Color = Color.Accent.ToSKColor(),
+                Color = accent,
                 IsAntialias = true
             };
 
             SKPaint spoonStroke = new SKPaint()
             {
                 Style = SKPaintStyle.Stroke,
-                Color = new SKColor(0x60, 0x60, 0x60),
-                StrokeWidth = 1,
+                Color = accent.WithAlpha(220),
+                StrokeWidth = 5,
                 StrokeJoin = SKStrokeJoin.Round,
                 StrokeCap = SKStrokeCap.Round,
+                IsAntialias = true
+            };
+
+            SKPaint sugarFill = new SKPaint()
+            {
+                Style = SKPaintStyle.Fill,
+                Color = new SKColor(0xe0, 0xe0, 0xe0),
                 IsAntialias = true
             };
 
@@ -112,7 +114,7 @@ namespace SugarSnap.Views
             {
                 DisplayAlert("Error", ex.Message, "Ok");
             }
-            
+
         }
 
         double percentage = 0;
