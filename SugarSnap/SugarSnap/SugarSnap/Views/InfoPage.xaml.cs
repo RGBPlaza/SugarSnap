@@ -10,19 +10,89 @@ using SkiaSharp;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SkiaSharp.Views.Forms;
+using SugarSnap.Models;
+using Newtonsoft.Json;
 
 namespace SugarSnap.Views
 {
     
     public partial class InfoPage : ContentPage
     {
-        public InfoPage()
+        public InfoPage(string tescoRetrievedData)
         {
             InitializeComponent();
-            MainCanvas.PaintSurface += DrawMainCanvas;
-        } 
+            //MainCanvas.PaintSurface += DrawMainCanvas;
 
-        private void DrawMainCanvas(object sender, SKPaintSurfaceEventArgs e)
+            tescoRetrievedData = tescoRetrievedData.ToLower();
+
+            TescoResult resultObject = JsonConvert.DeserializeObject<TescoResult>(tescoRetrievedData);
+            if (resultObject.Products.Count > 0)
+            {
+                TescoProduct resultProduct = resultObject.Products[0];
+                Product = resultProduct;
+            }
+            else
+            {
+                DisplayAlert("Product Compatability Error", "We are afraid that this item is not sold by tesco :/", "Well isn't that a pip");
+            }
+        }
+
+        private TescoProduct Product;
+        private bool isFoodOrDrink = false;
+        private bool ignoringAllergens = false;
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            try
+            {
+
+                ProductNameLabel.Text = Product.Description;
+
+                if ((bool)Product.ProductCharacteristics["isfood"])
+                {
+                    isFoodOrDrink = true;
+                    ResultLabel.Text = "This item is food or condiment";
+                }
+                else if ((bool)Product.ProductCharacteristics["isdrink"])
+                {
+                    isFoodOrDrink = true;
+                    ResultLabel.Text = "This item is a drink";
+                }
+                else
+                {
+                    await Navigation.PushAsync(new ProductUnsafePage(string.Empty));
+                }
+
+                if (isFoodOrDrink && !ignoringAllergens)
+                {
+                    if (Settings.UserAllergens != string.Empty)
+                    {
+                        string[] userAllergens = Settings.UserAllergens.Split(',');
+
+                        foreach (string allergen in userAllergens)
+                        {
+                            foreach (string ingredient in Product.Ingredients)
+                            {
+                                if(ingredient.IndexOf(allergen.ToLower()) != -1)
+                                {
+                                    ignoringAllergens = true;
+                                    await Navigation.PushAsync(new ProductUnsafePage(allergen));
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch(Exception ex)
+            {
+                await DisplayAlert("Error", ex.Message, "Ok");
+            }
+        }
+
+        /*private void DrawMainCanvas(object sender, SKPaintSurfaceEventArgs e)
         {
             SKImageInfo info = e.Info;
             SKSurface surface = e.Surface;
@@ -55,7 +125,7 @@ namespace SugarSnap.Views
                 Color = new SKColor(0xe0, 0xe0, 0xe0),
                 IsAntialias = true
             };
-
+            
             try
             {
                 switch (percentage)
@@ -126,6 +196,6 @@ namespace SugarSnap.Views
 
             percentage = e.NewValue;
             MainCanvas.InvalidateSurface();
-        }
+        }*/
     }
 }

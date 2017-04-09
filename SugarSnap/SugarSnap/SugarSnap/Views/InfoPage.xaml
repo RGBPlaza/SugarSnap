@@ -2,8 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SugarSnap.Views.InfoPage"
-             Title="Stats"
+             Title="Product Information"
              xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms">
+    <!--
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -15,5 +16,17 @@
         <skia:SKCanvasView x:Name="MainCanvas" Grid.Row="0" HorizontalOptions="Fill"/>
         <Slider Grid.Row="1" x:Name="Slider" Minimum="0" Maximum="100"  ValueChanged="Stepper_ValueChanged" WidthRequest="250" VerticalOptions="Center" HorizontalOptions="Center"/>
 
+    </Grid>
+    -->
+    
+    <Grid x:Name="MainGrid" Padding="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="ProductNameLabel" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Medium"/>
+        <ScrollView Grid.Row="1">
+            <Label x:Name="ResultLabel" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Text="Details will appear here..." LineBreakMode="WordWrap"/>
+        </ScrollView>
     </Grid>
 </ContentPage>

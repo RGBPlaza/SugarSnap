@@ -13,7 +13,7 @@ namespace SugarSnap
         {
             InitializeComponent();
 
-            MainPage = new SugarSnap.Views.InfoPage();
+            MainPage = new NavigationPage(new Views.MainPage());
         }
 
         protected override void OnStart()

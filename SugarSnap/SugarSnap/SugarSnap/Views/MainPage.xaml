@@ -3,9 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SugarSnap"
              x:Class="SugarSnap.Views.MainPage">
-
-	<Label Text="Welcome to Xamarin Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button HorizontalOptions="Center" VerticalOptions="Center" Text="Scan" BackgroundColor="Accent" TextColor="White" Clicked="Button_Clicked" FontSize="Large"/>
+        <Button Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center" Text="Allergens" BackgroundColor="Accent" TextColor="White" Clicked="Button_Clicked_1" FontSize="Large"/>
+    </Grid>
 
 </ContentPage>

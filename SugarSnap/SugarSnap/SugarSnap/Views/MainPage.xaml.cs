@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Newtonsoft.Json;
+using SugarSnap.Models;
+using System.Net.Http;
 
 namespace SugarSnap.Views
 {
@@ -12,6 +15,55 @@ namespace SugarSnap.Views
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        private ZXing.Mobile.MobileBarcodeScanner barcodeScanner = new ZXing.Mobile.MobileBarcodeScanner();
+        private bool isScanning = false;
+
+        protected override bool OnBackButtonPressed()
+        {
+            if (isScanning)
+            {
+                barcodeScanner.Cancel();
+                isScanning = false;
+                return true;
+            }
+            return base.OnBackButtonPressed();
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e){
+            //Navigation.PushAsync(new ScannerPage());
+
+            try
+            {
+
+                #if __ANDROID__
+	                //Initialize the scanner first so it can track the current context
+	                MobileBarcodeScanner.Initialize (Application);
+                 #endif
+
+                isScanning = true;
+                var result = await barcodeScanner.Scan();
+                var client = new HttpClient();
+
+                if (isScanning)
+                {
+                    client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "5fafd4ed0519499693a0c794dc3f0712");
+                    var response = await client.GetAsync("https://dev.tescolabs.com/product/?gtin=" + result.Text);
+
+                    await Navigation.PushAsync(new InfoPage(await response.Content.ReadAsStringAsync()));
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", ex.Message, "Let's Fix this!");
+            }
+
+        }
+
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AllergensPage());
         }
     }
 }

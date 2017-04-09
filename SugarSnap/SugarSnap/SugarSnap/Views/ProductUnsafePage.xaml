@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SugarSnap.Views.ProductUnsafePage"
+             BackgroundColor="Red">
+    <Grid Padding="8" RowSpacing="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label FontSize="180" TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="End" Text="!"/>
+        <StackLayout Grid.Row="1" Spacing="8">
+            <Label TextColor="White" FontSize="Medium" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" x:Name="ReasonLabel"/>
+            <Button BackgroundColor="White" TextColor="Red" HorizontalOptions="Center" VerticalOptions="Center" x:Name="ContinueButton" FontSize="Medium"/>
+        </StackLayout>
+
+    </Grid>
+</ContentPage>
