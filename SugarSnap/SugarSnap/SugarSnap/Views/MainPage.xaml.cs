@@ -7,6 +7,7 @@ using Xamarin.Forms;
 using Newtonsoft.Json;
 using SugarSnap.Models;
 using System.Net.Http;
+using ZXing.Mobile;
 
 namespace SugarSnap.Views
 {
@@ -17,7 +18,7 @@ namespace SugarSnap.Views
             InitializeComponent();
         }
 
-        private ZXing.Mobile.MobileBarcodeScanner barcodeScanner = new ZXing.Mobile.MobileBarcodeScanner();
+        private MobileBarcodeScanner barcodeScanner = new ZXing.Mobile.MobileBarcodeScanner();
         private bool isScanning = false;
 
         protected override bool OnBackButtonPressed()
@@ -32,16 +33,9 @@ namespace SugarSnap.Views
         }
 
         private async void Button_Clicked(object sender, EventArgs e){
-            //Navigation.PushAsync(new ScannerPage());
 
             try
             {
-
-                #if __ANDROID__
-	                //Initialize the scanner first so it can track the current context
-	                MobileBarcodeScanner.Initialize (Application);
-                 #endif
-
                 isScanning = true;
                 var result = await barcodeScanner.Scan();
                 var client = new HttpClient();

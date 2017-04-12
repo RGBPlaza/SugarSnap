@@ -105,6 +105,7 @@
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <None Include="app.config" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -141,17 +142,17 @@
     <Reference Include="Plugin.Settings.Abstractions, Version=2.5.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xam.Plugins.Settings.2.5.4\lib\Xamarin.iOS10\Plugin.Settings.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="SkiaSharp, Version=1.56.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SkiaSharp.1.56.2\lib\XamariniOS\SkiaSharp.dll</HintPath>
+    <Reference Include="SkiaSharp, Version=1.57.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SkiaSharp.1.57.0\lib\XamariniOS\SkiaSharp.dll</HintPath>
     </Reference>
-    <Reference Include="SkiaSharp.Svg, Version=1.56.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SkiaSharp.Svg.1.56.2\lib\netstandard1.3\SkiaSharp.Svg.dll</HintPath>
+    <Reference Include="SkiaSharp.Svg, Version=1.57.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SkiaSharp.Svg.1.57.0\lib\netstandard1.3\SkiaSharp.Svg.dll</HintPath>
     </Reference>
-    <Reference Include="SkiaSharp.Views.Forms, Version=1.56.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SkiaSharp.Views.Forms.1.56.2\lib\XamariniOS\SkiaSharp.Views.Forms.dll</HintPath>
+    <Reference Include="SkiaSharp.Views.Forms, Version=1.57.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SkiaSharp.Views.Forms.1.57.0\lib\XamariniOS\SkiaSharp.Views.Forms.dll</HintPath>
     </Reference>
-    <Reference Include="SkiaSharp.Views.iOS, Version=1.56.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SkiaSharp.Views.1.56.2\lib\XamariniOS\SkiaSharp.Views.iOS.dll</HintPath>
+    <Reference Include="SkiaSharp.Views.iOS, Version=1.57.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SkiaSharp.Views.1.57.0\lib\XamariniOS\SkiaSharp.Views.iOS.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.IO.Compression" />

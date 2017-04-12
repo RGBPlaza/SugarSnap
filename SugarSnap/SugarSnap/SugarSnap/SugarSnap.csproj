@@ -56,9 +56,6 @@
     <Compile Include="Views\ProductUnsafePage.xaml.cs">
       <DependentUpon>ProductUnsafePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ScannerPage.xaml.cs">
-      <DependentUpon>ScannerPage.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\MainPage.xaml">
@@ -80,14 +77,14 @@
     <Reference Include="Plugin.Settings.Abstractions, Version=2.5.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xam.Plugins.Settings.2.5.4\lib\portable-net45+wp80+win8+wpa81\Plugin.Settings.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="SkiaSharp, Version=1.56.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SkiaSharp.1.56.2\lib\portable-net45+win8+wpa81+wp8\SkiaSharp.dll</HintPath>
+    <Reference Include="SkiaSharp, Version=1.57.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SkiaSharp.1.57.0\lib\portable-net45+win8+wpa81+wp8\SkiaSharp.dll</HintPath>
     </Reference>
-    <Reference Include="SkiaSharp.Svg, Version=1.56.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SkiaSharp.Svg.1.56.2\lib\portable-net45+win8+wpa81+wp8\SkiaSharp.Svg.dll</HintPath>
+    <Reference Include="SkiaSharp.Svg, Version=1.57.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SkiaSharp.Svg.1.57.0\lib\portable-net45+win8+wpa81+wp8\SkiaSharp.Svg.dll</HintPath>
     </Reference>
-    <Reference Include="SkiaSharp.Views.Forms, Version=1.56.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SkiaSharp.Views.Forms.1.56.2\lib\portable-net45+win8+wpa81+wp8\SkiaSharp.Views.Forms.dll</HintPath>
+    <Reference Include="SkiaSharp.Views.Forms, Version=1.57.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SkiaSharp.Views.Forms.1.57.0\lib\portable-net45+win8+wpa81+wp8\SkiaSharp.Views.Forms.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
       <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\System.Net.Http.dll</HintPath>
@@ -115,16 +112,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\InfoPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\ScannerPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

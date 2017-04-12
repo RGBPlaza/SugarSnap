@@ -4,29 +4,15 @@
              x:Class="SugarSnap.Views.InfoPage"
              Title="Product Information"
              xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms">
-    <!--
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <skia:SKCanvasView x:Name="MainCanvas" Grid.Row="0" HorizontalOptions="Fill"/>
-        <Slider Grid.Row="1" x:Name="Slider" Minimum="0" Maximum="100"  ValueChanged="Stepper_ValueChanged" WidthRequest="250" VerticalOptions="Center" HorizontalOptions="Center"/>
+        
+        <skia:SKCanvasView x:Name="MainCanvas"/>
+    </Grid>
 
-    </Grid>
-    -->
-    
-    <Grid x:Name="MainGrid" Padding="8">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Label x:Name="ProductNameLabel" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontSize="Medium"/>
-        <ScrollView Grid.Row="1">
-            <Label x:Name="ResultLabel" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Text="Details will appear here..." LineBreakMode="WordWrap"/>
-        </ScrollView>
-    </Grid>
 </ContentPage>
