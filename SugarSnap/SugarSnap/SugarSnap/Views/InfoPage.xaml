@@ -6,13 +6,16 @@
              xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
+
         <skia:SKCanvasView x:Name="MainCanvas"/>
+        <Label Grid.Row="1" x:Name="SugarLabel" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
     </Grid>
 
 </ContentPage>

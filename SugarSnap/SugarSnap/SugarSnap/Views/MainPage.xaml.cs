@@ -16,6 +16,7 @@ namespace SugarSnap.Views
         public MainPage()
         {
             InitializeComponent();
+            tap.Tapped += new EventHandler(ScreenTapped);
         }
 
         private MobileBarcodeScanner barcodeScanner = new ZXing.Mobile.MobileBarcodeScanner();
@@ -30,6 +31,16 @@ namespace SugarSnap.Views
                 return true;
             }
             return base.OnBackButtonPressed();
+        }
+
+        TapGestureRecognizer tap = new TapGestureRecognizer();
+
+        private void ScreenTapped(object sender, EventArgs e)
+        {
+            if (isScanning)
+            {
+                barcodeScanner.AutoFocus();
+            }
         }
 
         private async void Button_Clicked(object sender, EventArgs e){
