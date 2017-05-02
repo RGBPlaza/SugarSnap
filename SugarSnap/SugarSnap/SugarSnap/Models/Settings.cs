@@ -16,7 +16,7 @@ namespace SugarSnap.Models
         public static string UserAllergens
         {
             get { return AppSettings.GetValueOrDefault(AllergenKey, DefaultUserAllergens); }
-            set { AppSettings.AddOrUpdateValue(AllergenKey, value); }
+            set { try { AppSettings.AddOrUpdateValue(AllergenKey, value); } catch { AppSettings.Clear(); } }
         }
 
         private static ISettings AppSettings

@@ -1,15 +1,15 @@
 ﻿{
   "dependencies": {
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
-    "Newtonsoft.Json": "9.0.1",
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
+    "Newtonsoft.Json": "10.0.2",
     "SkiaSharp": "1.57.0",
     "SkiaSharp.Svg": "1.57.0",
     "SkiaSharp.Views": "1.57.0",
     "SkiaSharp.Views.Forms": "1.57.0",
     "Xam.Plugins.Settings": "2.5.4",
-    "Xamarin.Forms": "2.3.3.193",
-    "ZXing.Net.Mobile": "2.1.47",
-    "ZXing.Net.Mobile.Forms": "2.1.47"
+    "Xamarin.Forms": "2.3.4.231",
+    "ZXing.Net.Mobile": "2.2.9",
+    "ZXing.Net.Mobile.Forms": "2.2.9"
   },
   "frameworks": {
     "uap10.0": {}

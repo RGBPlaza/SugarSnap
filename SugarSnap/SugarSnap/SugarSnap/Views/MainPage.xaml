@@ -3,14 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SugarSnap"
              x:Class="SugarSnap.Views.MainPage"
-             xmlns:barcode="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms">
+             xmlns:barcode="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             Title="Home">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Scan Barcode" Text="Scan Barcode" Order="Primary" Icon="scanIcon.png" Activated="ScanBarcode"/>
+        <ToolbarItem Name="View Allergens" Text="View Allergens" Order="Primary" Icon="allergensIcon.png" Activated="AllergensButtonClicked"/>
+    </ContentPage.ToolbarItems>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button HorizontalOptions="Center" VerticalOptions="Center" Text="Scan" BackgroundColor="Accent" TextColor="White" Clicked="Button_Clicked" FontSize="Large"/>
-        <Button Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center" Text="Allergens" BackgroundColor="Accent" TextColor="White" Clicked="Button_Clicked_1" FontSize="Large"/>
-    </Grid>
+        
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Label FontSize="Large" FontAttributes="Bold" Text="WELCOME TO SUGARNAP!" HorizontalTextAlignment="Center"/>
+            <Label FontSize="Small" Text="The fuss-free way to know what's in your food." HorizontalTextAlignment="Center"/>
+        </StackLayout>
 
+        <Image Grid.Row="1" Source="donutIcon.png" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" />
+
+    </Grid>
 </ContentPage>

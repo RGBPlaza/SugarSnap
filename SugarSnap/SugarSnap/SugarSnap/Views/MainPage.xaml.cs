@@ -19,7 +19,7 @@ namespace SugarSnap.Views
             tap.Tapped += new EventHandler(ScreenTapped);
         }
 
-        private MobileBarcodeScanner barcodeScanner = new ZXing.Mobile.MobileBarcodeScanner();
+        private MobileBarcodeScanner barcodeScanner = new MobileBarcodeScanner();
         private bool isScanning = false;
 
         protected override bool OnBackButtonPressed()
@@ -43,13 +43,13 @@ namespace SugarSnap.Views
             }
         }
 
-        private async void Button_Clicked(object sender, EventArgs e){
+        private async void ScanBarcode(object sender, EventArgs e){
 
             try
             {
                 isScanning = true;
-                var result = await barcodeScanner.Scan();
-                var client = new HttpClient();
+                var result = await barcodeScanner.Scan(new MobileBarcodeScanningOptions() { PossibleFormats = { ZXing.BarcodeFormat.UPC_A, ZXing.BarcodeFormat.UPC_E, ZXing.BarcodeFormat.UPC_EAN_EXTENSION, ZXing.BarcodeFormat.EAN_13, ZXing.BarcodeFormat.EAN_8 } });
+                HttpClient client = new HttpClient();
 
                 if (isScanning)
                 {
@@ -66,7 +66,7 @@ namespace SugarSnap.Views
 
         }
 
-        private void Button_Clicked_1(object sender, EventArgs e)
+        private void AllergensButtonClicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new AllergensPage());
         }

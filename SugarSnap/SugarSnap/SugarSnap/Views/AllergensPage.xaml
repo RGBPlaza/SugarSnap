@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SugarSnap.Views.AllergensPage"
              Title="Allergens">
-    <Grid Padding="8">
+    <Grid ColumnSpacing="8" RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
@@ -13,13 +13,17 @@
             <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
 
-        <Entry x:Name="AllergenEntry" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Placeholder="Name of Allergen"/>
-        <Button x:Name="AddButton" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="1" Text="Add" Clicked="AddButton_Clicked" WidthRequest="80" BackgroundColor="Accent"/>
+        <Entry x:Name="AllergenEntry" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Placeholder="Name of Allergen" Margin="8,8,0,8"/>
+        <Button x:Name="AddButton" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="1" Text="Add" Clicked="AddButton_Clicked" WidthRequest="80" BackgroundColor="Accent" Margin="0,8,8,8"/>
 
-        <ListView x:Name="AllergenListview" ItemSelected="AllergenListview_ItemSelected" Grid.Row="1" Grid.ColumnSpan="2" RowHeight="25">
+        <ListView x:Name="AllergenListview" ItemSelected="AllergenListview_ItemSelected" Grid.Row="1" Grid.ColumnSpan="2">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Name}"/>
+                    <ViewCell>
+                        <StackLayout Padding="8">
+                            <Label Text="{Binding Name}" FontSize="24" VerticalTextAlignment="Center"/>
+                        </StackLayout>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
