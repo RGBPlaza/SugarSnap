@@ -17,7 +17,8 @@ namespace SugarSnap.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
-            ZXing.Net.Mobile.Forms.Android.Platform.Init();
+            ZXing.Mobile.MobileBarcodeScanner.Initialize(Application);
+            global::ZXing.Net.Mobile.Forms.Android.Platform.Init();
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
         }

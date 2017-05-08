@@ -51,7 +51,7 @@ namespace SugarSnap.Views
                 var result = await barcodeScanner.Scan(new MobileBarcodeScanningOptions() { PossibleFormats = { ZXing.BarcodeFormat.UPC_A, ZXing.BarcodeFormat.UPC_E, ZXing.BarcodeFormat.UPC_EAN_EXTENSION, ZXing.BarcodeFormat.EAN_13, ZXing.BarcodeFormat.EAN_8 } });
                 HttpClient client = new HttpClient();
 
-                if (isScanning)
+                if (isScanning && result != null)
                 {
                     client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "5fafd4ed0519499693a0c794dc3f0712");
                     var response = await client.GetAsync("https://dev.tescolabs.com/product/?gtin=" + result.Text);
